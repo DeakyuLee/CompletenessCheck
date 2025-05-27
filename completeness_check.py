@@ -9,7 +9,6 @@ import csv
 @dataclass
 class Config:
     resourcePath: str
-    outputPath: str
 
 @dataclass
 class Result:
@@ -38,9 +37,7 @@ def load_config(path="config.json") -> Config:
         print(f"{resourcePath} does not exist!")
         sys.exit(1)
     
-    outputPath = config.get("outputPath", "./output.csv")
-
-    return Config(resourcePath, outputPath)
+    return Config(resourcePath)
 
 def extract_keys_from_file(xml_file_path: str):
     print(f"Extracting keys from {xml_file_path}")
